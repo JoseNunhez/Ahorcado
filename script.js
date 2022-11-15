@@ -15,9 +15,8 @@ const sectionInputJugador = document.getElementById("section-input-jugador");
 const contendorJuegoNuevo = document.getElementById("contenedor-juego-nuevo");
 const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
 const resultadoTexto = document.getElementById("resultado-texto");
-////////////////////////////////////////////
-//
-//
+
+
 //array de palabras
 
 let palabrasAhorcado = {
@@ -26,19 +25,16 @@ let palabrasAhorcado = {
   paises: ["Venezuela", "España", "Francia", "Panama", "Noruega", "Argentina"],
   ciudades: ["Caracas", "Madrid", "Barcelona", "Coruña", "Valencia", "Lugo"],
 };
-//////////////////////////////////////////////////
-//
-//
+
+
 // contador
 
 let winCount = 0;
 let count = 0;
 
 let palabraElegida = "";
-//////////////////////////////////////////////////////
-//
-//
-//
+
+
 // display botones de opciones
 
 const mostrarOpciones = () => {
@@ -49,10 +45,8 @@ const mostrarOpciones = () => {
   }
   contenedorOpcionesJugador.appendChild(buttonPalabrasAhorcado);
 };
-///////////////////////////////////////////////////////////////
-//
-//
-//
+
+
 //funcion inicial para cuando la pagina carga o el usuario presione ara juego nuevo
 const initializer = () => {
   winCount = 0;
@@ -60,15 +54,13 @@ const initializer = () => {
   mostrarOpciones();
 };
 window.onload = initializer;
-///////////////////////////////////////
-//
-//
+
+
 //iniciar un juego nuevo
 buttonJuegoNuevo.addEventListener("click", initializer);
 window.onload = initializer;
-///////////////////////////////////////
-//
-//
+
+
 //Bloquear todos los botones
 const bloquear = () => {
   let opcionesButtons = document.querySelectorAll(".opciones");
@@ -84,21 +76,54 @@ const bloquear = () => {
   });
   contendorJuegoNuevo.classList.remove("hide");
 };
-/////////////////////////////////////////////
-//
-//
+
+
+
 // abecedario dentro del contenedor
 for (let i = 65; i < 91; i++) {
   let button = document.createElement("button");
   button.classList.add("letras");
   /// usa los números del 65 al 97 de acuerdo al la numeración en la lista ASCII (A-Z)
   button.innerText = String.fromCharCode(i);
+  // Click del boton de letras
+  button.addEventListener("click", () => {
+    let letrasArray = palabraElegida.split("");
+    let dashes = document.getElementsByClassName("dashes");
+  // Si el array de letras contiene la letra clicada se reemplaza el dash por la letra correspondiente( y si no se dibuja una parte del ahorcado)
+    if (letrasArray.includes(button.innerText)){
+      letrasArray.forEach((char, index) => {
+      //Si la letra clicada está en el array
+        if (char === button.innerText){
+          //Reemplazo dash por letra e incrementamos contador
+          dashes[index].innerText = char;
+          winCount += 1;
+          // si el wincount es igual a la longitud de la palabra ganas
+          if (winCount === letrasArray.length) {
+            resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
+            //Bloquear todos los botones
+            bloquear();
+          }
+        }
+      });
+    }
+    else {
+      //Contador de oportunidades (y aladir imagen del ahorcado)
+      count += 1;
+      //Si el contador es igual a 6, el jugador pierde
+      if(count===6){
+        resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
+        bloquear();
+      }
+    }
+  //Desabilitar boton click
+  button.disabled = true;
+  });
   contenedorLetras.append(button);
 }
-//////////////////////////////
-//
-//
-//
+
+
+
+
 //Generador de palabras
 
 const generarPalabra = (palabrasAhorcadoValue) => {
@@ -116,10 +141,12 @@ const generarPalabra = (palabrasAhorcadoValue) => {
   sectionInputJugador.innerText = "";
 
   let opcionArray = palabrasAhorcado[palabrasAhorcadoValue];
+  
   //Escoger Palabra Random
   palabraElegida = opcionArray[Math.floor(Math.random() * opcionArray.length)];
   palabraElegida = palabraElegida.toUpperCase();
   console.log(palabraElegida);
+
   //Reemplazar cada letra con un "_"
   let palabraOculta = palabraElegida.replace(
     /./g,
@@ -129,6 +156,5 @@ const generarPalabra = (palabrasAhorcadoValue) => {
   //Muestra cada elemento como un span
   sectionInputJugador.innerHTML = palabraOculta;
 };
-/////////////////////////
-//
-//
+
+
