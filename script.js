@@ -15,7 +15,9 @@ const sectionInputJugador = document.getElementById("section-input-jugador");
 const contendorJuegoNuevo = document.getElementById("contenedor-juego-nuevo");
 const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
 const resultadoTexto = document.getElementById("resultado-texto");
-
+////////////////////////////////////////////
+//
+//
 //array de palabras
 
 let palabrasAhorcado = {
@@ -24,44 +26,54 @@ let palabrasAhorcado = {
   paises: ["Venezuela", "España", "Francia", "Panama", "Noruega", "Argentina"],
   ciudades: ["Caracas", "Madrid", "Barcelona", "Coruña", "Valencia", "Lugo"],
 };
-
+//////////////////////////////////////////////////
+//
+//
 // contador
 
 let winCount = 0;
 let count = 0;
 
 let palabraElegida = "";
-
+//////////////////////////////////////////////////////
+//
+//
+//
 // display botones de opciones
 
 const mostrarOpciones = () => {
   contenedorOpcionesJugador.innerHTML += `<h3> Selecciona una opcion para jugar</h3>`;
   let buttonPalabrasAhorcado = document.createElement("div");
   for (let value in palabrasAhorcado) {
-    buttonPalabrasAhorcado.innerHTML += `<button class="opciones" onclick="generateWord('${value}')">${value}</button>`;
+    buttonPalabrasAhorcado.innerHTML += `<button class="opciones" onclick="generarPalabra('${value}')">${value}</button>`;
   }
   contenedorOpcionesJugador.appendChild(buttonPalabrasAhorcado);
 };
-
-//funcion inicial para cuando la pagina carga o el usuario preesiona para new game
+///////////////////////////////////////////////////////////////
 //
 //
+//
+//funcion inicial para cuando la pagina carga o el usuario presione ara juego nuevo
 const initializer = () => {
   winCount = 0;
   count = 0;
   mostrarOpciones();
 };
 window.onload = initializer;
-
+///////////////////////////////////////
+//
+//
 //iniciar un juego nuevo
 buttonJuegoNuevo.addEventListener("click", initializer);
 window.onload = initializer;
-
+///////////////////////////////////////
+//
+//
 //Bloquear todos los botones
 const bloquear = () => {
   let opcionesButtons = document.querySelectorAll(".opciones");
   let letrasButtons = document.querySelectorAll(".letters");
-  //Desabilitar Opciones
+  //Desabilitar todas las opciones
   opcionesButtons.forEach((button) => {
     button.disabled = true;
   });
@@ -72,8 +84,22 @@ const bloquear = () => {
   });
   contendorJuegoNuevo.classList.remove("hide");
 };
-
-//Generador de palabra
+/////////////////////////////////////////////
+//
+//
+// abecedario dentro del contenedor
+for (let i = 65; i < 91; i++) {
+  let button = document.createElement("button");
+  button.classList.add("letras");
+  /// usa los números del 65 al 97 de acuerdo al la numeración en la lista ASCII (A-Z)
+  button.innerText = String.fromCharCode(i);
+  contenedorLetras.append(button);
+}
+//////////////////////////////
+//
+//
+//
+//Generador de palabras
 
 const generarPalabra = (palabrasAhorcadoValue) => {
   let buttonOpciones = document.querySelectorAll(".opciones");
@@ -93,13 +119,16 @@ const generarPalabra = (palabrasAhorcadoValue) => {
   //Escoger Palabra Random
   palabraElegida = opcionArray[Math.floor(Math.random() * opcionArray.length)];
   palabraElegida = palabraElegida.toUpperCase();
-
+  console.log(palabraElegida);
   //Reemplazar cada letra con un "_"
   let palabraOculta = palabraElegida.replace(
     /./g,
-    '<span class="dashes">_</span>'
+    '<span class="dashes">_</span>&nbsp;' //&nbsp; pone espacio para separar cada letra y _
   );
 
   //Muestra cada elemento como un span
   sectionInputJugador.innerHTML = palabraOculta;
 };
+/////////////////////////
+//
+//

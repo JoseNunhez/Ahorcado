@@ -26,6 +26,7 @@ body {
 
 #opciones-jugador {
   text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #opciones-jugador div {
@@ -36,12 +37,14 @@ body {
 }
 
 #opciones-jugador button {
-  padding: 0.6em 1.2em;
-  border: 3px solid black;
+  padding: 0.9em 1.2em;
+  border: 3px solid rgb(212, 208, 208);
   background-color: whitesmoke;
   color: black;
-  border-radius: 0.3em;
+  border-radius: 0.6em;
   text-transform: capitalize;
+  font-weight: lighter;
+  box-shadow: 0 1.3em 2.5em rgba(189, 188, 188, 0.589);
 }
 
 #opciones-jugador button:disabled {
@@ -54,4 +57,60 @@ body {
   border: 3px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
   background-color: rgb(250, 104, 104);
+}
+
+.contenedor-letras {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+}
+
+#contenedor-letras button {
+  height: 2.4em;
+  width: 2.4em;
+  border-radius: 10em;
+  border: 3px solid rgb(212, 208, 208);
+  background-color: rgb(255, 255, 255);
+  color: black;
+  box-shadow: 0 1.3em 2.5em rgba(235, 235, 235, 0.589);
+  font-weight: bold;
+}
+
+.contenedor-juego-nuevo {
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 0.5em;
+}
+
+.contenedor-juego-nuevo button {
+  padding: 0.5em 0.9em;
+  border: 3px solid rgb(212, 208, 208);
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 0.6em;
+  text-transform: capitalize;
+  font-weight: lighter;
+  box-shadow: 0 1.3em 2.5em rgba(189, 188, 188, 0.589);
+  font-weight: bolder;
+}
+
+.hide {
+  display: none;
+}
+
+#section-input-jugador {
+  display: flex;
+  justify-content: center;
+  font-size: 1.1em;
+  margin: 1em 0 1.5em 0;
 }
