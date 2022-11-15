@@ -21,3 +21,37 @@ body {
   border-radius: 0.6em;
   box-shadow: 0 1.2em 2.4em rgba(216, 112, 147, 0.692);
 }
+
+/*botones*/
+
+#opciones-jugador {
+  text-align: center;
+}
+
+#opciones-jugador div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2em 0 2.4em 0;
+}
+
+#opciones-jugador button {
+  padding: 0.6em 1.2em;
+  border: 3px solid black;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 0.3em;
+  text-transform: capitalize;
+}
+
+#opciones-jugador button:disabled {
+  border: 3px solid gray;
+  color: grey;
+  background-color: white;
+}
+
+#opciones-jugador button:active {
+  border: 3px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  background-color: white;
+}
