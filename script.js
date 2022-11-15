@@ -1,35 +1,45 @@
-//Incial ref
-
+/* Initial References
 const letterContainer = document.getElementById("letter-container");
-const playerOptionsContainer = document.getElementById("player-options");
-const playerInputSection = document.getElementById("player-input-section");
+const optionsContainer = document.getElementById("options-container");
+const userInputSection = document.getElementById("user-input-section");
 const newGameContainer = document.getElementById("new-game-container");
-const newGameButton = document.getElementById("new-gane-button");
-const resultText = document.getElementById("result-text");
+const newGameButton = document.getElementById("new-game-button");
+const canvas = document.getElementById("canvas");
+const resultText = document.getElementById("result-text"); */
+
+
+//Declaración variables
+
+const contenedorLetras = document.getElementById("contenedor-letras"); 
+const contenedorOpcionesJugador = document.getElementById("opciones-jugador"); 
+const sectionInputJugador = document.getElementById("sectionInputJugador"); 
+const contendorJuegoNuevo = document.getElementById("contenedor-juego-nuevo"); 
+const buttonJuegoNuevo = document.getElementById("button-juego-nuevo"); 
+const resultadoTexto = document.getElementById("resultado-texto"); 
 
 //array de palabras
 
-let hangmanWords = {
+let palabrasAhorcado = { 
   frutas: ["banana", "sandía", "cereza", "higo", "mandarina", "manzana"],
   animales: ["gato", "perro", "caballo", "elefante", "guacamaya", "ardilla"],
   paises: ["Venezuela", "España", "Francia", "Panama", "Noruega", "Argentina"],
   ciudades: ["Caracas", "Madrid", "Barcelona", "Coruña", "Valencia", "Lugo"],
 };
 
-// count
+// contador
 
 let winCount = 0;
 let count = 0;
 
-let chosenword = "";
+let palabraElegida = "";
 
 // display botones de opciones
 
-const displayOptions = () => {
-  playerOptionsContainer.innerHTML += `<h3> Selecciona una opcion </h3>`;
-  let buttonHangmanWords = document.createElement("div");
+const mostrarOpciones = () => {
+    contenedorOpcionesJugador.innerHTML += `<h3> Selecciona una opcion </h3>`;
+  let buttonPalabrasAhorcado = document.createElement("div");
   for (let value in hangmanWords) {
-    buttonHangmanWords.innerHTML += `<button class="buttonHangmanwords" onclick="generateWord('${value}')">${value}</button>`;
+    buttonPalabrasAhorcado.innerHTML += `<button class="buttonPalabrasAhorcado" onclick="generateWord('${value}')">${value}</button>`;
   }
-  playerOptionsContainer.appendChild(buttonHangmanWords);
+  contenedorOpcionesJugador.appendChild(buttonPalabrasAhorcado);
 };
