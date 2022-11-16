@@ -9,7 +9,6 @@ const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
 const imagenesAhorcado = document.getElementById("imagenes-ahorcado");
 const resultadoTexto = document.getElementById("resultado-texto");
 
-
 //array de palabras
 
 let palabrasAhorcado = {
@@ -19,13 +18,11 @@ let palabrasAhorcado = {
   ciudades: ["Caracas", "Madrid", "Barcelona", "Coruña", "Valencia", "Lugo"],
 };
 
-
 // contador
 
 let winCount = 0;
 let count = 0;
 let palabraElegida = "";
-
 
 // display botones de opciones
 
@@ -46,14 +43,13 @@ const bloquear = () => {
   opcionesButtons.forEach((button) => {
     button.disabled = true;
   });
-  
+
   //Deshabilitar letras
   letrasButtons.forEach((button) => {
     button.disabled.true;
   });
   contendorJuegoNuevo.classList.remove("hide");
 };
-
 
 //funcion inicial para cuando la pagina carga o el usuario presione ara juego nuevo
 const iniciar = () => {
@@ -135,21 +131,21 @@ for (let i = 65; i <92; i++) {
       }
     }
     //Desabilitar boton click
-    button.disabled = true
+    button.disabled = true;
   });
   contenedorLetras.append(button);
-  if (i===209){i=78}
 }
 }
 mostrarOpciones();
 };
 
 
+
 //Generador de palabras
 
 const generarPalabra = (palabrasAhorcadoValue) => {
   let buttonOpciones = document.querySelectorAll(".opciones");
-  imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen0.png" alt="">'
+  imagenesAhorcado.innerHTML += '<img src="Imagenes/imagen0.png" alt="">';
   //If optionValur matches the button innerText then highlight the button
   buttonOpciones.forEach((button) => {
     if (button.innerText.toLowerCase() === palabrasAhorcadoValue) {
@@ -157,30 +153,28 @@ const generarPalabra = (palabrasAhorcadoValue) => {
     }
     button.disabled = true;
   });
-  
+
   //Ocultar letras, y limpiar palabra anterior
   contenedorLetras.classList.remove("hide");
   sectionInputJugador.innerText = "";
-  
+
   let opcionArray = palabrasAhorcado[palabrasAhorcadoValue];
-  
+
   //Escoger Palabra Random
   palabraElegida = opcionArray[Math.floor(Math.random() * opcionArray.length)];
   palabraElegida = palabraElegida.toUpperCase();
   console.log(palabraElegida);
-  
+
   //Reemplazar cada letra con un "_"
   let palabraOculta = palabraElegida.replace(
     /./g,
     '<span class="dashes">_</span>&nbsp;' //&nbsp; pone espacio para separar cada letra y _
-    );
-    
-    //Muestra cada elemento como un span
-    sectionInputJugador.innerHTML = palabraOculta;
-  };
-  
-  
-  //iniciar un juego nuevo
-  buttonJuegoNuevo.addEventListener("click", iniciar);
-  window.onload = iniciar;
-  
+  );
+
+  //Muestra cada elemento como un span
+  sectionInputJugador.innerHTML = palabraOculta;
+};
+
+//iniciar un juego nuevo
+buttonJuegoNuevo.addEventListener("click", iniciar);
+window.onload = iniciar;
