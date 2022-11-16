@@ -1,11 +1,3 @@
-/* Initial References
-const letterContainer = document.getElementById("letter-container");
-const optionsContainer = document.getElementById("options-container");
-const userInputSection = document.getElementById("user-input-section");
-const newGameContainer = document.getElementById("new-game-container");
-const newGameButton = document.getElementById("new-game-button");
-const canvas = document.getElementById("canvas");
-const resultText = document.getElementById("result-text"); */
 
 //Declaración variables
 
@@ -75,33 +67,37 @@ const iniciar = () => {
   contendorJuegoNuevo.classList.add("hide");
   contenedorLetras.innerHTML = "";
   imagenesAhorcado.innerHTML = ""
-
+  let a = true;
 // abecedario dentro del contenedor
-for (let i = 65; i < 210; i++) {
+for (let i = 65; i <92; i++) {
   let button = document.createElement("button");
   button.classList.add("letras");
   /// usa los números del 65 al 97 de acuerdo al la numeración en la lista ASCII (A-Z)
   if ((i>64 && i<91) || i === 209){
-  button.innerText = String.fromCharCode(i);
-  button.addEventListener("click", () => {
-    let letrasArray = palabraElegida.split("");
-    let dashes = document.getElementsByClassName("dashes");
-    // Si el array de letras contiene la letra clicada se reemplaza el dash por la letra correspondiente( y si no se dibuja una parte del ahorcado)
-    if (letrasArray.includes(button.innerText)){
-      letrasArray.forEach((char, index) => {
-        //Si la letra clicada está en el array
-        if (char === button.innerText){
-          //Reemplazo dash por letra e incrementamos contador
-          dashes[index].innerText = char;
-          winCount += 1;
-          // si el wincount es igual a la longitud de la palabra ganas
-          if (winCount === letrasArray.length) {
-            resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
-            //Bloquear todos los botones
-            bloquear();
+    if(i===79 && a){
+      i=209;
+      a=false;
+    }
+    button.innerText = String.fromCharCode(i);
+    button.addEventListener("click", () => {
+      let letrasArray = palabraElegida.split("");
+      let dashes = document.getElementsByClassName("dashes");
+      // Si el array de letras contiene la letra clicada se reemplaza el dash por la letra correspondiente( y si no se dibuja una parte del ahorcado)
+      if (letrasArray.includes(button.innerText)){
+        letrasArray.forEach((char, index) => {
+          //Si la letra clicada está en el array
+          if (char === button.innerText){
+            //Reemplazo dash por letra e incrementamos contador
+            dashes[index].innerText = char;
+            winCount += 1;
+            // si el wincount es igual a la longitud de la palabra ganas
+            if (winCount === letrasArray.length) {
+              resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
+              //Bloquear todos los botones
+              bloquear();
+            }
           }
-        }
-      });
+        });
     }
     else {
       //Contador de oportunidades (y aladir imagen del ahorcado)
@@ -139,14 +135,14 @@ for (let i = 65; i < 210; i++) {
       }
     }
     //Desabilitar boton click
-    button.disabled = true;
+    button.disabled = true
   });
   contenedorLetras.append(button);
+  if (i===209){i=78}
 }
 }
 mostrarOpciones();
 };
-
 
 
 //Generador de palabras
