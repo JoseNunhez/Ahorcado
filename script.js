@@ -109,28 +109,31 @@ for (let i = 65; i < 210; i++) {
       switch(count){
         case 1:
           imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen2.png" alt="">'
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen1.png" alt="">'
           break;
         case 2:
           imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen3.png" alt="">'
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen2.png" alt="">'
           break;
         case 3:
           imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen4.png" alt="">'
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen3.png" alt="">'
           break;
         case 4:
           imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen5.png" alt="">'
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen4.png" alt="">'
           break;
         case 5:
           imagenesAhorcado.innerHTML = ""
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen5.png" alt="">'
+          break;
+        case 6:
+          imagenesAhorcado.innerHTML = ""
           imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen6.png" alt="">'
           break;
-          
       }
       //Si el contador es igual a 6, el jugador pierde
-      if(count===6){
+      if(count===7){
         resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
         bloquear();
       }
@@ -150,7 +153,7 @@ mostrarOpciones();
 
 const generarPalabra = (palabrasAhorcadoValue) => {
   let buttonOpciones = document.querySelectorAll(".opciones");
-  imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen1.png" alt="">'
+  imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen0.png" alt="">'
   //If optionValur matches the button innerText then highlight the button
   buttonOpciones.forEach((button) => {
     if (button.innerText.toLowerCase() === palabrasAhorcadoValue) {
