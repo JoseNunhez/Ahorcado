@@ -14,6 +14,7 @@ const contenedorOpcionesJugador = document.getElementById("opciones-jugador");
 const sectionInputJugador = document.getElementById("section-input-jugador");
 const contendorJuegoNuevo = document.getElementById("contenedor-juego-nuevo");
 const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
+const imagenesAhorcado = document.getElementById("imagenes-ahorcado");
 const resultadoTexto = document.getElementById("resultado-texto");
 
 
@@ -31,7 +32,6 @@ let palabrasAhorcado = {
 
 let winCount = 0;
 let count = 0;
-
 let palabraElegida = "";
 
 
@@ -58,6 +58,7 @@ const iniciar = () => {
   contenedorLetras.classList.add("hide");
   contendorJuegoNuevo.classList.add("hide");
   contenedorLetras.innerHTML = "";
+  imagenesAhorcado.innerHTML = ""
 
 // abecedario dentro del contenedor
 for (let i = 65; i < 210; i++) {
@@ -89,6 +90,29 @@ for (let i = 65; i < 210; i++) {
     else {
       //Contador de oportunidades (y aladir imagen del ahorcado)
       count += 1;
+      switch(count){
+        case 1:
+          imagenesAhorcado.innerHTML = ""
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen2.png" alt="">'
+          break;
+        case 2:
+          imagenesAhorcado.innerHTML = ""
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen3.png" alt="">'
+          break;
+        case 3:
+          imagenesAhorcado.innerHTML = ""
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen4.png" alt="">'
+          break;
+        case 4:
+          imagenesAhorcado.innerHTML = ""
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen5.png" alt="">'
+          break;
+        case 5:
+          imagenesAhorcado.innerHTML = ""
+          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen6.png" alt="">'
+          break;
+          
+      }
       //Si el contador es igual a 6, el jugador pierde
       if(count===6){
         resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
@@ -120,18 +144,11 @@ const bloquear = () => {
   contendorJuegoNuevo.classList.remove("hide");
 };
 
-
-
-
-
-
-
-
-
 //Generador de palabras
 
 const generarPalabra = (palabrasAhorcadoValue) => {
   let buttonOpciones = document.querySelectorAll(".opciones");
+  imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen1.png" alt="">'
   //If optionValur matches the button innerText then highlight the button
   buttonOpciones.forEach((button) => {
     if (button.innerText.toLowerCase() === palabrasAhorcadoValue) {
