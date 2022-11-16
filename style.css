@@ -126,3 +126,17 @@ body {
   overflow: hidden;
   justify-content: center;
 }
+
+#opciones-jugador button:disabled {
+  border: 3px solid #808080;
+  color: #808080;
+  background-color: #e7a6a644;
+  cursor: not-allowed;
+}
+
+#opciones-jugador button.activo {
+  background-color: #f4c531;
+  border: 3px solid #000000;
+  color: #000000;
+  cursor: not-allowed;
+}

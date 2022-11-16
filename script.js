@@ -46,6 +46,22 @@ const mostrarOpciones = () => {
   contenedorOpcionesJugador.appendChild(buttonPalabrasAhorcado);
 };
 
+//Bloquear todos los botones
+const bloquear = () => {
+  let opcionesButtons = document.querySelectorAll(".opciones");
+  let letrasButtons = document.querySelectorAll(".letters");
+  //Desabilitar todas las opciones
+  opcionesButtons.forEach((button) => {
+    button.disabled = true;
+  });
+  
+  //Deshabilitar letras
+  letrasButtons.forEach((button) => {
+    button.disabled.true;
+  });
+  contendorJuegoNuevo.classList.remove("hide");
+};
+
 
 //funcion inicial para cuando la pagina carga o el usuario presione ara juego nuevo
 const iniciar = () => {
@@ -128,21 +144,7 @@ for (let i = 65; i < 210; i++) {
 mostrarOpciones();
 };
 
-//Bloquear todos los botones
-const bloquear = () => {
-  let opcionesButtons = document.querySelectorAll(".opciones");
-  let letrasButtons = document.querySelectorAll(".letters");
-  //Desabilitar todas las opciones
-  opcionesButtons.forEach((button) => {
-    button.disabled = true;
-  });
-  
-  //Deshabilitar letras
-  letrasButtons.forEach((button) => {
-    button.disabled.true;
-  });
-  contendorJuegoNuevo.classList.remove("hide");
-};
+
 
 //Generador de palabras
 
