@@ -14,32 +14,70 @@ body {
 .usuario {
   grid-area: usuario;
   display:flex;
-  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #934B00;
+  min-width: 300px;
+  padding: 2em;
 }
 
 .puntuaciones {
   grid-area: puntuaciones;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #690500;
+  min-width: 300px;
+  padding: 2em;
 }
 
 .container {
   grid-area: main;
+  display: flex;
+  flex-direction: column;
   font-size: 16px;
-  background-color: whitesmoke;
-  padding: 3em;
+  background-color: #BB6B00;
+  padding: 2em;
+}
+/*Titulos*/
+.usuario h1 {
+  background-color: #452103;
+  text-align: center;
+  color: whitesmoke;
+  padding: 0.5rem;
+  border-radius: 0.6em;
+  box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.589);
+}
+.puntuaciones h1 {
+  background-color: #452103;
+  text-align: center;
+  color: whitesmoke;
+  padding: 0.5rem;
+  border-radius: 0.6em;
+  box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.589);
+}
+.container h1{
+  box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.589);
+  background-color: #452103;
+  justify-items: ;
+  text-align: center;
+  color: whitesmoke;
+  padding: 0.5rem;
   border-radius: 0.6em;
 }
+
+/*Input*/
+
 
 /*botones*/
 
 #opciones-jugador {
+  margin: auto;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #opciones-jugador div {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   margin: 1.2em 0 2.4em 0;
@@ -70,7 +108,7 @@ body {
 }
 
 .contenedor-letras {
-  width: 100%;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -119,6 +157,7 @@ body {
 }
 
 #section-input-jugador {
+  margin: auto;
   display: flex;
   justify-content: center;
   font-size: 1.1em;
@@ -129,7 +168,7 @@ body {
   display: flex;
   width: 120px;
   height: 120px;
-  margin: 0 auto;
+  margin: auto;
   margin-top: 15px;
   border-radius: 80%;
   overflow: hidden;
@@ -137,9 +176,9 @@ body {
 }
 
 #opciones-jugador button:disabled {
-  border: 3px solid #808080;
-  color: #808080;
-  background-color: #e7a6a644;
+  border: 3px solid #000000;
+  color: #040000;
+  background-color: #c5a875d8;
   cursor: not-allowed;
 }
 
