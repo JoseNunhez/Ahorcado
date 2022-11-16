@@ -17,7 +17,6 @@ const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
 const imagenesAhorcado = document.getElementById("imagenes-ahorcado");
 const resultadoTexto = document.getElementById("resultado-texto");
 
-
 //array de palabras
 
 let palabrasAhorcado = {
@@ -27,13 +26,11 @@ let palabrasAhorcado = {
   ciudades: ["Caracas", "Madrid", "Barcelona", "Coruña", "Valencia", "Lugo"],
 };
 
-
 // contador
 
 let winCount = 0;
 let count = 0;
 let palabraElegida = "";
-
 
 // display botones de opciones
 
@@ -54,14 +51,13 @@ const bloquear = () => {
   opcionesButtons.forEach((button) => {
     button.disabled = true;
   });
-  
+
   //Deshabilitar letras
   letrasButtons.forEach((button) => {
     button.disabled.true;
   });
   contendorJuegoNuevo.classList.remove("hide");
 };
-
 
 //funcion inicial para cuando la pagina carga o el usuario presione ara juego nuevo
 const iniciar = () => {
@@ -74,86 +70,89 @@ const iniciar = () => {
   contenedorLetras.classList.add("hide");
   contendorJuegoNuevo.classList.add("hide");
   contenedorLetras.innerHTML = "";
-  imagenesAhorcado.innerHTML = ""
+  imagenesAhorcado.innerHTML = "";
 
-// abecedario dentro del contenedor
-for (let i = 65; i < 210; i++) {
-  let button = document.createElement("button");
-  button.classList.add("letras");
-  /// usa los números del 65 al 97 de acuerdo al la numeración en la lista ASCII (A-Z)
-  if ((i>64 && i<91) || i === 209){
-  button.innerText = String.fromCharCode(i);
-  button.addEventListener("click", () => {
-    let letrasArray = palabraElegida.split("");
-    let dashes = document.getElementsByClassName("dashes");
-    // Si el array de letras contiene la letra clicada se reemplaza el dash por la letra correspondiente( y si no se dibuja una parte del ahorcado)
-    if (letrasArray.includes(button.innerText)){
-      letrasArray.forEach((char, index) => {
-        //Si la letra clicada está en el array
-        if (char === button.innerText){
-          //Reemplazo dash por letra e incrementamos contador
-          dashes[index].innerText = char;
-          winCount += 1;
-          // si el wincount es igual a la longitud de la palabra ganas
-          if (winCount === letrasArray.length) {
-            resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
-            //Bloquear todos los botones
+  // abecedario dentro del contenedor
+  for (let i = 65; i < 210; i++) {
+    let button = document.createElement("button");
+    button.classList.add("letras");
+    /// usa los números del 65 al 97 de acuerdo al la numeración en la lista ASCII (A-Z)
+    if ((i > 64 && i < 91) || i === 209) {
+      button.innerText = String.fromCharCode(i);
+      button.addEventListener("click", () => {
+        let letrasArray = palabraElegida.split("");
+        let dashes = document.getElementsByClassName("dashes");
+        // Si el array de letras contiene la letra clicada se reemplaza el dash por la letra correspondiente( y si no se dibuja una parte del ahorcado)
+        if (letrasArray.includes(button.innerText)) {
+          letrasArray.forEach((char, index) => {
+            //Si la letra clicada está en el array
+            if (char === button.innerText) {
+              //Reemplazo dash por letra e incrementamos contador
+              dashes[index].innerText = char;
+              winCount += 1;
+              // si el wincount es igual a la longitud de la palabra ganas
+              if (winCount === letrasArray.length) {
+                resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO!</h2><p>tu respuesta es correcta, la palabra es <span>${palabraElegida}</span></p>`;
+                //Bloquear todos los botones
+                bloquear();
+              }
+            }
+          });
+        } else {
+          //Contador de oportunidades (y añadir imagen del ahorcado)
+          count += 1;
+          switch (count) {
+            case 1:
+              imagenesAhorcado.innerHTML = "";
+              imagenesAhorcado.innerHTML +=
+                '<img src="Imagenes/Imagen1.png" alt="">';
+              break;
+            case 2:
+              imagenesAhorcado.innerHTML = "";
+              imagenesAhorcado.innerHTML +=
+                '<img src="Imagenes/Imagen2.png" alt="">';
+              break;
+            case 3:
+              imagenesAhorcado.innerHTML = "";
+              imagenesAhorcado.innerHTML +=
+                '<img src="Imagenes/imagen3.png" alt="">';
+              break;
+            case 4:
+              imagenesAhorcado.innerHTML = "";
+              imagenesAhorcado.innerHTML +=
+                '<img src="Imagenes/imagen4.png" alt="">';
+              break;
+            case 5:
+              imagenesAhorcado.innerHTML = "";
+              imagenesAhorcado.innerHTML +=
+                '<img src="Imagenes/imagen5.png" alt="">';
+              break;
+            case 6:
+              imagenesAhorcado.innerHTML = "";
+              imagenesAhorcado.innerHTML +=
+                '<img src="Imagenes/imagen6.png" alt="">';
+              break;
+          }
+          //Si el contador es igual a 6, el jugador pierde
+          if (count === 7) {
+            resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO!</h2><p>La palabra correcta es <span>${palabraElegida}</span></p>`;
             bloquear();
           }
         }
+        //Desabilitar boton click
+        button.disabled = true;
       });
+      contenedorLetras.append(button);
     }
-    else {
-      //Contador de oportunidades (y aladir imagen del ahorcado)
-      count += 1;
-      switch(count){
-        case 1:
-          imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen1.png" alt="">'
-          break;
-        case 2:
-          imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen2.png" alt="">'
-          break;
-        case 3:
-          imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen3.png" alt="">'
-          break;
-        case 4:
-          imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen4.png" alt="">'
-          break;
-        case 5:
-          imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen5.png" alt="">'
-          break;
-        case 6:
-          imagenesAhorcado.innerHTML = ""
-          imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen6.png" alt="">'
-          break;
-      }
-      //Si el contador es igual a 6, el jugador pierde
-      if(count===7){
-        resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
-        bloquear();
-      }
-    }
-    //Desabilitar boton click
-    button.disabled = true;
-  });
-  contenedorLetras.append(button);
-}
-}
-mostrarOpciones();
+  }
+  mostrarOpciones();
 };
-
-
 
 //Generador de palabras
 
 const generarPalabra = (palabrasAhorcadoValue) => {
   let buttonOpciones = document.querySelectorAll(".opciones");
-  imagenesAhorcado.innerHTML +=  '<img src="Imagenes/Imagen0.png" alt="">'
+  imagenesAhorcado.innerHTML += '<img src="Imagenes/imagen0.png" alt="">';
   //If optionValur matches the button innerText then highlight the button
   buttonOpciones.forEach((button) => {
     if (button.innerText.toLowerCase() === palabrasAhorcadoValue) {
@@ -161,30 +160,28 @@ const generarPalabra = (palabrasAhorcadoValue) => {
     }
     button.disabled = true;
   });
-  
+
   //Ocultar letras, y limpiar palabra anterior
   contenedorLetras.classList.remove("hide");
   sectionInputJugador.innerText = "";
-  
+
   let opcionArray = palabrasAhorcado[palabrasAhorcadoValue];
-  
+
   //Escoger Palabra Random
   palabraElegida = opcionArray[Math.floor(Math.random() * opcionArray.length)];
   palabraElegida = palabraElegida.toUpperCase();
   console.log(palabraElegida);
-  
+
   //Reemplazar cada letra con un "_"
   let palabraOculta = palabraElegida.replace(
     /./g,
     '<span class="dashes">_</span>&nbsp;' //&nbsp; pone espacio para separar cada letra y _
-    );
-    
-    //Muestra cada elemento como un span
-    sectionInputJugador.innerHTML = palabraOculta;
-  };
-  
-  
-  //iniciar un juego nuevo
-  buttonJuegoNuevo.addEventListener("click", iniciar);
-  window.onload = iniciar;
-  
+  );
+
+  //Muestra cada elemento como un span
+  sectionInputJugador.innerHTML = palabraOculta;
+};
+
+//iniciar un juego nuevo
+buttonJuegoNuevo.addEventListener("click", iniciar);
+window.onload = iniciar;
