@@ -8,7 +8,10 @@ const contendorJuegoNuevo = document.getElementById("contenedor-juego-nuevo");
 const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
 const imagenesAhorcado = document.getElementById("imagenes-ahorcado");
 const resultadoTexto = document.getElementById("resultado-texto");
-
+const contenedorPuntuaciones = document.getElementById("puntuaciones-jugadores")
+let mejoresDiezPuntuaciones = [];
+let nombreUsuario = "Jose";
+let puntuacionFinal = 0;
 //array de palabras
 
 let palabrasAhorcado = {
@@ -22,7 +25,7 @@ let palabrasAhorcado = {
 
 let winCount = 0;
 let count = 0;
-let palabraElegida = "";
+let palabraElegida = 0;
 
 // display botones de opciones
 
@@ -55,6 +58,14 @@ const bloquear = () => {
 const iniciar = () => {
   winCount = 0;
   count = 0;
+
+  //Mostramos mejores puntuaciones
+if (mejoresDiezPuntuaciones.length > 0){
+contenedorPuntuaciones.innerHTML = "";
+let puntos = mejoresDiezPuntuaciones.map((a)=> "<p>Nombre: " + a.name + "---" + a.puntuacion + " puntos.</p>")
+contenedorPuntuaciones.innerHTML = puntos
+}
+
 
   //Ocultamos todas las letras y el boton de juego nuevo
   sectionInputJugador.innerHTML = "";
@@ -89,6 +100,10 @@ for (let i = 65; i <92; i++) {
             // si el wincount es igual a la longitud de la palabra ganas
             if (winCount === letrasArray.length) {
               resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
+              puntuacionFinal = (10-count)*palabraElegida.length
+              mejoresDiezPuntuaciones.push({name: nombreUsuario, puntuacion: puntuacionFinal})
+              suprimirPuntuaciones(mejoresDiezPuntuaciones);
+              console.log(mejoresDiezPuntuaciones)
               //Bloquear todos los botones
               bloquear();
             }
@@ -127,6 +142,10 @@ for (let i = 65; i <92; i++) {
       //Si el contador es igual a 6, el jugador pierde
       if(count===7){
         resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
+        puntuacionFinal = palabraElegida.length+winCount
+        mejoresDiezPuntuaciones.push({name: nombreUsuario, puntuacion: puntuacionFinal})
+        suprimirPuntuaciones(mejoresDiezPuntuaciones);
+        console.log(mejoresDiezPuntuaciones)
         bloquear();
       }
     }
@@ -179,3 +198,12 @@ const generarPalabra = (palabrasAhorcadoValue) => {
 //iniciar un juego nuevo
 buttonJuegoNuevo.addEventListener("click", iniciar);
 window.onload = iniciar;
+
+//Sistema de puntuaciones
+function suprimirPuntuaciones(array){
+  array.sort((a, b) => b.puntuacion - a.puntuacion);
+  if(array.length > 3){
+    array.pop();
+    return array
+  }
+}
