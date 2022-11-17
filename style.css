@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Jost:wght@300;400;600&family=Titan+One&display=swap");
+
 * {
   margin: 0%;
   padding: 0%;
@@ -10,8 +12,9 @@ body {
   grid-template-columns: 1fr, 5fr, 1fr;
   grid-template-rows: 1fr, 2rem;
   grid-template-areas: "usuario main puntuaciones";
-  background-image: url(https://img.freepik.com/foto-gratis/formas-papel-psicodelico-espacio-copia_23-2149378245.jpg?w=1380&t=st=1668627872~exp=1668628472~hmac=e21ebbd09f7ed345659af5545c4cdbde03df0a7defd2eaf7cc4d12d994cdae24);
   background-size: cover;
+  font-family: "Fredoka One", cursive;
+  font-weight: 100;
 }
 
 .usuario {
@@ -73,7 +76,8 @@ body {
 #opciones-jugador {
   margin: auto;
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Fredoka One", cursive;
+  font-weight: 150;
 }
 
 #opciones-jugador div {
@@ -98,7 +102,8 @@ body {
   font-size: 17px;
   box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Fredoka One", cursive;
+  font-weight: 200;
 }
 
 #opciones-jugador button:disabled {
@@ -147,6 +152,7 @@ body {
   border-radius: 0%;
   overflow: hidden;
   font-size: 1.3em;
+  text-align: center;
 }
 
 .contenedor-juego-nuevo button {
@@ -193,8 +199,8 @@ body {
 
 #imagenes-ahorcado {
   display: flex;
-  width: 235px;
-  height: 235px;
+  width: 250px;
+  height: 250px;
   margin: auto;
   margin-top: 15px;
   border-radius: 80%;
