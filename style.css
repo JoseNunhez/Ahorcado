@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: rgb(103, 62, 29);
+  background-color: rgb(255, 255, 250);
   display: grid;
   grid-template-columns: 1fr, 5fr, 1fr;
   grid-template-rows: 1fr, 2rem;
