@@ -12,10 +12,6 @@ body {
   grid-template-columns: 1fr, 5fr, 1fr;
   grid-template-rows: 1fr, 2rem;
   grid-template-areas: "usuario main puntuaciones";
-  grid-template-areas:
-    "usuario main puntuaciones"
-    "footer footer footer";
-  background-image: url();
   background-size: cover;
   font-family: "Fredoka One", cursive;
   font-weight: 100;
@@ -72,9 +68,6 @@ body {
   padding: 0.5rem;
   border-radius: 0.6em;
 }
-#opciones-jugador h3 {
-  padding: 2rem;
-}
 
 /*Input*/
 
@@ -94,21 +87,23 @@ body {
 }
 
 #opciones-jugador button {
-  border: 1px;
+  border: 1px white;
   margin-left: 1.5rem;
   padding: 0.9em 1.2em;
   position: relative;
   display: inline-block;
   box-sizing: inherit;
+  background-color: hsl(56, 100%, 50%);
   background-clip: text;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   border-radius: 20px;
   text-transform: capitalize;
-  font-weight: 600;
+  font-weight: bolder;
   font-size: 17px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Fredoka One", cursive;
+  font-weight: 200;
 }
 
 #opciones-jugador button:disabled {
@@ -165,6 +160,7 @@ body {
   padding: 0.5em 0.9em;
   border: 3px solid rgb(6, 172, 56);
   background-color: rgb(3, 151, 53);
+  color: rgb(255, 255, 255);
   border-radius: 0.6em;
   text-transform: capitalize;
   font-weight: lighter;
@@ -175,15 +171,14 @@ body {
 #opciones-jugador button:disabled {
   border: 3px solid #00000010;
   color: #040000;
+  background-color: #d2d3d3d8;
   cursor: not-allowed;
-  background-color: none;
 }
-#opciones-jugador button:active {
-  color: #f84e15;
-}
+
 #opciones-jugador button.activo {
-  border: 3px solid #02000077;
-  color: #f84e15;
+  background-color: #ffffff;
+  border: 3px solid #00000077;
+  color: #000000;
   cursor: not-allowed;
 }
 
@@ -214,9 +209,8 @@ body {
 }
 
 footer {
-  grid-area: footer;
   background-color: #aaa7a7;
-  position: relative;
+  position: absolute;
   display: flex;
   bottom: 0;
   width: 100%;
@@ -228,10 +222,4 @@ footer {
 footer p {
   color: rgb(59, 59, 59);
   margin: auto;
-}
-
-/*Letras*/
-#contenedor-letras button:disabled {
-  color: #ffffff;
-  background-color: #040000;
 }
