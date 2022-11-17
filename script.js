@@ -134,6 +134,7 @@ for (let i = 65; i <92; i++) {
     button.disabled = true;
   });
   contenedorLetras.append(button);
+  if(i===209){i=78}
 }
 }
 mostrarOpciones();
