@@ -112,7 +112,6 @@ body {
   display: inline-block;
   box-sizing: inherit;
   background-color: #ffbe0b;
-  background-clip: text;
   color: rgb(0, 0, 0);
   border-radius: 20px;
   text-transform: capitalize;
@@ -319,7 +318,6 @@ td {
   display: inline-block;
   box-sizing: inherit;
   background-color: #fb5607;
-  background-clip: text;
   color: rgb(0, 0, 0);
   border-radius: 20px;
   text-transform: capitalize;
