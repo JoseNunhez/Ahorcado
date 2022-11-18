@@ -8,7 +8,11 @@ const contendorJuegoNuevo = document.getElementById("contenedor-juego-nuevo");
 const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
 const imagenesAhorcado = document.getElementById("imagenes-ahorcado");
 const resultadoTexto = document.getElementById("resultado-texto");
-
+const contenedorPuntuaciones = document.getElementById("puntuaciones-jugadores")
+const inputUsuario = document.getElementById("usuario");
+let mejoresPuntuaciones = [];
+let nombreUsuario = "-";
+let puntuacionFinal = 0;
 //array de palabras
 
 let palabrasAhorcado = {
@@ -22,7 +26,7 @@ let palabrasAhorcado = {
 
 let winCount = 0;
 let count = 0;
-let palabraElegida = "";
+let palabraElegida = 0;
 
 // display botones de opciones
 
@@ -38,7 +42,7 @@ const mostrarOpciones = () => {
 //Bloquear todos los botones
 const bloquear = () => {
   let opcionesButtons = document.querySelectorAll(".opciones");
-  let letrasButtons = document.querySelectorAll(".letters");
+  let letrasButtons = document.querySelectorAll(".letras");
   //Desabilitar todas las opciones
   opcionesButtons.forEach((button) => {
     button.disabled = true;
@@ -46,7 +50,7 @@ const bloquear = () => {
 
   //Deshabilitar letras
   letrasButtons.forEach((button) => {
-    button.disabled.true;
+    button.disabled = true;
   });
   contendorJuegoNuevo.classList.remove("hide");
 };
@@ -55,6 +59,22 @@ const bloquear = () => {
 const iniciar = () => {
   winCount = 0;
   count = 0;
+  if(nombreUsuario.length >1){cambiarNombre()}
+  else{nombre()}
+  
+
+  //Mostramos mejores puntuaciones
+if (mejoresPuntuaciones.length > 0){
+  contenedorPuntuaciones.innerHTML = "<tr><th>NOMBRE</th><th>PUNTUACION</th></tr>";
+  for ( let i in mejoresPuntuaciones){
+    contenedorPuntuaciones.innerHTML += 
+    '<tr>'+
+    '<td>'+mejoresPuntuaciones[i]['name']+'</td>'+
+    '<td>'+mejoresPuntuaciones[i]['puntuacion']+'</td>'+
+    '</tr>';
+  }
+}
+
 
   //Ocultamos todas las letras y el boton de juego nuevo
   sectionInputJugador.innerHTML = "";
@@ -88,7 +108,11 @@ for (let i = 65; i <92; i++) {
             winCount += 1;
             // si el wincount es igual a la longitud de la palabra ganas
             if (winCount === letrasArray.length) {
-              resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
+              puntuacionFinal = (10-count)*palabraElegida.length
+              mejoresPuntuaciones.push({name: nombreUsuario, puntuacion: puntuacionFinal})
+              suprimirPuntuaciones(mejoresPuntuaciones);
+              console.log(mejoresPuntuaciones)
+              resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO! Puntuacion de: ${puntuacionFinal}</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
               //Bloquear todos los botones
               bloquear();
             }
@@ -126,7 +150,11 @@ for (let i = 65; i <92; i++) {
       }
       //Si el contador es igual a 6, el jugador pierde
       if(count===7){
-        resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
+        puntuacionFinal = palabraElegida.length+winCount
+        mejoresPuntuaciones.push({name: nombreUsuario, puntuacion: puntuacionFinal})
+        suprimirPuntuaciones(mejoresPuntuaciones);
+        console.log(mejoresPuntuaciones)
+        resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO! Puntuacion de: ${puntuacionFinal}</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
         bloquear();
       }
     }
@@ -146,7 +174,7 @@ mostrarOpciones();
 
 const generarPalabra = (palabrasAhorcadoValue) => {
   let buttonOpciones = document.querySelectorAll(".opciones");
-  imagenesAhorcado.innerHTML += '<img src="Imagenes/imagen0.png" alt="">';
+  imagenesAhorcado.innerHTML += '<img src="Imagenes/Imagen0.png" alt="">';
   //If optionValur matches the button innerText then highlight the button
   buttonOpciones.forEach((button) => {
     if (button.innerText.toLowerCase() === palabrasAhorcadoValue) {
@@ -179,3 +207,23 @@ const generarPalabra = (palabrasAhorcadoValue) => {
 //iniciar un juego nuevo
 buttonJuegoNuevo.addEventListener("click", iniciar);
 window.onload = iniciar;
+
+//Sistema de puntuaciones
+function suprimirPuntuaciones(array){
+  array.sort((a, b) => b.puntuacion - a.puntuacion);
+  if(array.length > 3){
+    array.pop();
+    return array
+  }
+}
+function nombre(){
+  inputUsuario.innerHTML = "<p>Introduzca su nombre:</p><input class='nombre' type='text' id='inputNombre'><button class='nombre' onclick='guardarNombre()'>GUARDAR</button> ";
+}
+function guardarNombre(){
+  nombreUsuario = document.getElementById("inputNombre").value;
+  inputUsuario.innerHTML = "<button class='nombre'onclick='nombre()'>CAMBIAR NOMBRE</button>"
+}
+function cambiarNombre(){
+  inputUsuario.innerHTML = "<button class='nombre' onclick='nombre()'>CAMBIAR NOMBRE</button>"
+  console.log(nombreUsuario)
+}
