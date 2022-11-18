@@ -8,15 +8,15 @@
 h2{
   padding:1rem;
 }
-p{
-  padding: 1rem;
+.contenedor-juego-nuevo p{
+ padding: 1rem
 }
 
 body {
-  background-color: rgb(90, 36, 7);
+  background-color: rgb(164, 121, 121);
   display: grid;
   grid-template-columns: 1fr, 5fr, 1fr;
-  grid-template-rows: 1fr, 2rem;
+  grid-template-rows: 1fr, 3rem;
   grid-template-areas: 
   "usuario main puntuaciones"
   "footer footer footer";
@@ -104,7 +104,7 @@ body {
   position: relative;
   display: inline-block;
   box-sizing: inherit;
-  background-color: hsl(56, 100%, 50%);
+  background-color: hsla(56, 100%, 50%, 0);
   background-clip: text;
   color: rgb(0, 0, 0);
   border-radius: 20px;
@@ -117,19 +117,26 @@ body {
   font-weight: 200;
 }
 
-#opciones-jugador button:disabled {
-  border: 3px solid rgb(214, 214, 214);
-  color: rgb(192, 191, 191);
-  background-color: white;
-}
+
 
 #opciones-jugador button:active {
   border: 3px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
-  background-color: rgb(250, 168, 61);
 }
+#opciones-jugador button:disabled {
+  border: 1px solid #00000018;
+  color: #000000;
+  cursor: not-allowed;
+}
+
+#opciones-jugador button.activo {
+  border: 3px solid #000000;
+  color: #000000;
+  cursor: not-allowed;
+}
+/*LETRAS*/
 #contenedor-letras button:disabled{
-background-color: #000000;
+background-color: #383753;
 color: white;
 }
 
@@ -183,19 +190,7 @@ color: white;
   font-weight: bolder;
 }
 
-#opciones-jugador button:disabled {
-  border: 3px solid #00000010;
-  color: #040000;
-  background-color: #d2d3d3d8;
-  cursor: not-allowed;
-}
 
-#opciones-jugador button.activo {
-  background-color: #ffffff;
-  border: 3px solid #00000077;
-  color: #000000;
-  cursor: not-allowed;
-}
 
 .hide {
   display: none;
@@ -227,11 +222,10 @@ footer {
   grid-area: footer;
   background-color: #aaa7a7;
   display: flex;
-  bottom: 0;
   width: 100%;
-  height: 1.5rem;
   text-align: center;
   justify-content: center;
+  height: 1.5rem;
 }
 
 footer p {
@@ -253,3 +247,64 @@ td{
   border: 1px solid black;
   text-align: center;
 }
+
+/*Edicion botones e input de nombre*/
+#usuario{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+}
+#usuario p{
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+  font-weight: bolder;
+  font-size: 17px;
+  font-family: "Fredoka One", cursive;
+  font-weight: 200;
+}
+#usuario input{  
+  border: 1px white;
+  padding: 0.9em 1.2em;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  background-color: rgba(167, 142, 142, 0.414);
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  text-transform: capitalize;
+  font-weight: bolder;
+  font-size: 17px;
+  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.35);
+  cursor: text;
+  font-family: "Fredoka One", cursive;
+  font-weight: 200;
+
+}
+
+#usuario button {  
+  border: 1px white;
+  padding: 0.9em 1.2em;
+  position: relative;
+  display: inline-block;
+  box-sizing: inherit;
+  background-color: hsla(56, 100%, 50%, 0);
+  background-clip: text;
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  text-transform: capitalize;
+  font-weight: bolder;
+  font-size: 17px;
+  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  font-family: "Fredoka One", cursive;
+  font-weight: 200;
+}
+
+#usuario button:active {
+  border: 3px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+}
+

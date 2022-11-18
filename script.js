@@ -9,8 +9,9 @@ const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
 const imagenesAhorcado = document.getElementById("imagenes-ahorcado");
 const resultadoTexto = document.getElementById("resultado-texto");
 const contenedorPuntuaciones = document.getElementById("puntuaciones-jugadores")
+const inputUsuario = document.getElementById("usuario");
 let mejoresPuntuaciones = [];
-let nombreUsuario = "Jose";
+let nombreUsuario = "-";
 let puntuacionFinal = 0;
 //array de palabras
 
@@ -58,6 +59,9 @@ const bloquear = () => {
 const iniciar = () => {
   winCount = 0;
   count = 0;
+  if(nombreUsuario.length >1){cambiarNombre()}
+  else{nombre()}
+  
 
   //Mostramos mejores puntuaciones
 if (mejoresPuntuaciones.length > 0){
@@ -211,4 +215,15 @@ function suprimirPuntuaciones(array){
     array.pop();
     return array
   }
+}
+function nombre(){
+  inputUsuario.innerHTML = "<p>Introduzca su nombre:</p><input class='nombre' type='text' id='inputNombre'><button class='nombre' onclick='guardarNombre()'>GUARDAR</button> ";
+}
+function guardarNombre(){
+  nombreUsuario = document.getElementById("inputNombre").value;
+  inputUsuario.innerHTML = "<button class='nombre'onclick='nombre()'>CAMBIAR NOMBRE</button>"
+}
+function cambiarNombre(){
+  inputUsuario.innerHTML = "<button class='nombre' onclick='nombre()'>CAMBIAR NOMBRE</button>"
+  console.log(nombreUsuario)
 }
