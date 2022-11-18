@@ -7,11 +7,13 @@
 }
 
 body {
-  background-color: rgb(255, 255, 250);
+  background-color: rgb(90, 36, 7);
   display: grid;
   grid-template-columns: 1fr, 5fr, 1fr;
   grid-template-rows: 1fr, 2rem;
-  grid-template-areas: "usuario main puntuaciones";
+  grid-template-areas: 
+  "usuario main puntuaciones"
+  "footer footer footer";
   background-size: cover;
   font-family: "Fredoka One", cursive;
   font-weight: 100;
@@ -34,11 +36,15 @@ body {
   min-width: 300px;
   padding: 2em;
 }
+#opciones-jugador h3{
+  padding: 3rem;
+}
 
 .container {
   grid-area: main;
   display: flex;
   flex-direction: column;
+  align-items: ;
   font-size: 16px;
   padding: 2em;
   background-color: rgba(255, 255, 255, 0.068);
@@ -116,6 +122,10 @@ body {
   border: 3px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
   background-color: rgb(250, 168, 61);
+}
+#contenedor-letras button:disabled{
+background-color: #000000;
+color: white;
 }
 
 .contenedor-letras {
@@ -209,8 +219,8 @@ body {
 }
 
 footer {
+  grid-area: footer;
   background-color: #aaa7a7;
-  position: absolute;
   display: flex;
   bottom: 0;
   width: 100%;
