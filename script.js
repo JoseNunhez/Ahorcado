@@ -236,14 +236,14 @@ function suprimirPuntuaciones(array) {
 }
 function nombre() {
   inputUsuario.innerHTML =
-    "<p>Introduzca su nombre:</p><input class='nombre' type='text' id='inputNombre'><button class='nombre' onclick='guardarNombre()'>GUARDAR</button> ";
+    "<p class='texto-usuario'>Introduzca su nombre:</p><input class='nombre' type='text' id='inputNombre'><button class='nombre' onclick='guardarNombre()'>GUARDAR</button> ";
 }
 function guardarNombre() {
   nombreUsuario = document.getElementById("inputNombre").value;
-  inputUsuario.innerHTML = `<p>Su nombre es: ${nombreUsuario} </p><button class="nombre"onclick="nombre()">CAMBIAR NOMBRE</button>`;
+  inputUsuario.innerHTML = `<p class='texto-usuario'>Su nombre es: ${nombreUsuario} </p><button class="nombre"onclick="nombre()">CAMBIAR NOMBRE</button>`;
 }
 function cambiarNombre() {
-  inputUsuario.innerHTML = `<p>Su nombre es: ${nombreUsuario} </p><button class='nombre' onclick='nombre()'>CAMBIAR NOMBRE</button>`;
+  inputUsuario.innerHTML = `<p class='texto-usuario'>Su nombre es: ${nombreUsuario} </p><button class='nombre' onclick='nombre()'>CAMBIAR NOMBRE</button>`;
   console.log(nombreUsuario);
 }
 

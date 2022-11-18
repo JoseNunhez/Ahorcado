@@ -32,6 +32,10 @@ body {
   color: white;
 }
 
+.modo-nocturno .texto-usuario {
+  color: white !important;
+}
+
 .usuario {
   grid-area: usuario;
   display: flex;
