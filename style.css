@@ -5,6 +5,12 @@
   padding: 0%;
   box-sizing: border-box;
 }
+h2{
+  padding:1rem;
+}
+p{
+  padding: 1rem;
+}
 
 body {
   background-color: rgb(90, 36, 7);
@@ -231,4 +237,19 @@ footer {
 footer p {
   color: rgb(59, 59, 59);
   margin: auto;
+}
+
+/*^Tabla de puntuaciones*/
+table{
+  margin: auto;
+}
+th{
+  padding: 1rem;
+  text-align: center;
+  border: 2px solid black;
+}
+td{
+  padding: 1rem;
+  border: 1px solid black;
+  text-align: center;
 }

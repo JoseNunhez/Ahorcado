@@ -9,7 +9,7 @@ const buttonJuegoNuevo = document.getElementById("button-juego-nuevo");
 const imagenesAhorcado = document.getElementById("imagenes-ahorcado");
 const resultadoTexto = document.getElementById("resultado-texto");
 const contenedorPuntuaciones = document.getElementById("puntuaciones-jugadores")
-let mejoresDiezPuntuaciones = [];
+let mejoresPuntuaciones = [];
 let nombreUsuario = "Jose";
 let puntuacionFinal = 0;
 //array de palabras
@@ -41,7 +41,7 @@ const mostrarOpciones = () => {
 //Bloquear todos los botones
 const bloquear = () => {
   let opcionesButtons = document.querySelectorAll(".opciones");
-  let letrasButtons = document.querySelectorAll(".letters");
+  let letrasButtons = document.querySelectorAll(".letras");
   //Desabilitar todas las opciones
   opcionesButtons.forEach((button) => {
     button.disabled = true;
@@ -49,7 +49,7 @@ const bloquear = () => {
 
   //Deshabilitar letras
   letrasButtons.forEach((button) => {
-    button.disabled.true;
+    button.disabled = true;
   });
   contendorJuegoNuevo.classList.remove("hide");
 };
@@ -60,10 +60,15 @@ const iniciar = () => {
   count = 0;
 
   //Mostramos mejores puntuaciones
-if (mejoresDiezPuntuaciones.length > 0){
-contenedorPuntuaciones.innerHTML = "";
-let puntos = mejoresDiezPuntuaciones.map((a)=> "<p>Nombre: " + a.name + "---" + a.puntuacion + " puntos.</p>")
-contenedorPuntuaciones.innerHTML = puntos
+if (mejoresPuntuaciones.length > 0){
+  contenedorPuntuaciones.innerHTML = "<tr><th>NOMBRE</th><th>PUNTUACION</th></tr>";
+  for ( let i in mejoresPuntuaciones){
+    contenedorPuntuaciones.innerHTML += 
+    '<tr>'+
+    '<td>'+mejoresPuntuaciones[i]['name']+'</td>'+
+    '<td>'+mejoresPuntuaciones[i]['puntuacion']+'</td>'+
+    '</tr>';
+  }
 }
 
 
@@ -99,11 +104,11 @@ for (let i = 65; i <92; i++) {
             winCount += 1;
             // si el wincount es igual a la longitud de la palabra ganas
             if (winCount === letrasArray.length) {
-              resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
               puntuacionFinal = (10-count)*palabraElegida.length
-              mejoresDiezPuntuaciones.push({name: nombreUsuario, puntuacion: puntuacionFinal})
-              suprimirPuntuaciones(mejoresDiezPuntuaciones);
-              console.log(mejoresDiezPuntuaciones)
+              mejoresPuntuaciones.push({name: nombreUsuario, puntuacion: puntuacionFinal})
+              suprimirPuntuaciones(mejoresPuntuaciones);
+              console.log(mejoresPuntuaciones)
+              resultadoTexto.innerHTML = `<h2 class='mensaje-ganador'>¡HAS GANADO! Puntuacion de: ${puntuacionFinal}</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
               //Bloquear todos los botones
               bloquear();
             }
@@ -141,11 +146,11 @@ for (let i = 65; i <92; i++) {
       }
       //Si el contador es igual a 6, el jugador pierde
       if(count===7){
-        resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO!</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
         puntuacionFinal = palabraElegida.length+winCount
-        mejoresDiezPuntuaciones.push({name: nombreUsuario, puntuacion: puntuacionFinal})
-        suprimirPuntuaciones(mejoresDiezPuntuaciones);
-        console.log(mejoresDiezPuntuaciones)
+        mejoresPuntuaciones.push({name: nombreUsuario, puntuacion: puntuacionFinal})
+        suprimirPuntuaciones(mejoresPuntuaciones);
+        console.log(mejoresPuntuaciones)
+        resultadoTexto.innerHTML = `<h2 class='mensaje-perdedor'>¡HAS PERDIDO! Puntuacion de: ${puntuacionFinal}</h2><p>La palabra era <span>${palabraElegida}</span></p>`;
         bloquear();
       }
     }
