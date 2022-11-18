@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Jost:wght@300;400;600&family=Titan+One&display=swap");
+
 * {
   margin: 0%;
   padding: 0%;
@@ -5,15 +7,14 @@
 }
 
 body {
-  background-color: rgb(103, 62, 29);
+  background-color: rgb(255, 255, 250);
   display: grid;
   grid-template-columns: 1fr, 5fr, 1fr;
   grid-template-rows: 1fr, 2rem;
-  grid-template-areas: 
-  "usuario main puntuaciones"
-  "footer footer footer";
-  background-image: url();
+  grid-template-areas: "usuario main puntuaciones";
   background-size: cover;
+  font-family: "Fredoka One", cursive;
+  font-weight: 100;
 }
 
 .usuario {
@@ -67,9 +68,6 @@ body {
   padding: 0.5rem;
   border-radius: 0.6em;
 }
-#opciones-jugador h3{
-  padding: 2rem;
-}
 
 /*Input*/
 
@@ -78,7 +76,8 @@ body {
 #opciones-jugador {
   margin: auto;
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Fredoka One", cursive;
+  font-weight: 150;
 }
 
 #opciones-jugador div {
@@ -87,23 +86,36 @@ body {
   margin: 1.2em 0 2.4em 0;
 }
 
-
 #opciones-jugador button {
-  border: 1px;
+  border: 1px white;
   margin-left: 1.5rem;
   padding: 0.9em 1.2em;
   position: relative;
   display: inline-block;
   box-sizing: inherit;
+  background-color: hsl(56, 100%, 50%);
   background-clip: text;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   border-radius: 20px;
   text-transform: capitalize;
-  font-weight: 600;
+  font-weight: bolder;
   font-size: 17px;
-  box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Fredoka One", cursive;
+  font-weight: 200;
+}
+
+#opciones-jugador button:disabled {
+  border: 3px solid rgb(214, 214, 214);
+  color: rgb(192, 191, 191);
+  background-color: white;
+}
+
+#opciones-jugador button:active {
+  border: 3px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  background-color: rgb(250, 168, 61);
 }
 
 .contenedor-letras {
@@ -140,6 +152,7 @@ body {
   border-radius: 0%;
   overflow: hidden;
   font-size: 1.3em;
+  text-align: center;
 }
 
 .contenedor-juego-nuevo button {
@@ -147,6 +160,7 @@ body {
   padding: 0.5em 0.9em;
   border: 3px solid rgb(6, 172, 56);
   background-color: rgb(3, 151, 53);
+  color: rgb(255, 255, 255);
   border-radius: 0.6em;
   text-transform: capitalize;
   font-weight: lighter;
@@ -157,15 +171,14 @@ body {
 #opciones-jugador button:disabled {
   border: 3px solid #00000010;
   color: #040000;
+  background-color: #d2d3d3d8;
   cursor: not-allowed;
-  background-color: none;
 }
-#opciones-jugador button:active{
-  color: #f84e15;
-}
+
 #opciones-jugador button.activo {
-  border: 3px solid #02000077;
-  color: #f84e15;
+  background-color: #ffffff;
+  border: 3px solid #00000077;
+  color: #000000;
   cursor: not-allowed;
 }
 
@@ -186,8 +199,8 @@ body {
 
 #imagenes-ahorcado {
   display: flex;
-  width: 235px;
-  height: 235px;
+  width: 250px;
+  height: 250px;
   margin: auto;
   margin-top: 15px;
   border-radius: 80%;
@@ -196,9 +209,8 @@ body {
 }
 
 footer {
-  grid-area: footer;
   background-color: #aaa7a7;
-  position: relative;
+  position: absolute;
   display: flex;
   bottom: 0;
   width: 100%;
@@ -210,10 +222,4 @@ footer {
 footer p {
   color: rgb(59, 59, 59);
   margin: auto;
-}
-
-/*Letras*/
-#contenedor-letras button:disabled{
-  color: #ffffff;
-  background-color: #040000;
 }
