@@ -221,9 +221,9 @@ function nombre(){
 }
 function guardarNombre(){
   nombreUsuario = document.getElementById("inputNombre").value;
-  inputUsuario.innerHTML = "<button class='nombre'onclick='nombre()'>CAMBIAR NOMBRE</button>"
+  inputUsuario.innerHTML =  `<p>Su nombre es: ${nombreUsuario} </p><button class="nombre"onclick="nombre()">CAMBIAR NOMBRE</button>`
 }
 function cambiarNombre(){
-  inputUsuario.innerHTML = "<button class='nombre' onclick='nombre()'>CAMBIAR NOMBRE</button>"
+  inputUsuario.innerHTML = `<p>Su nombre es: ${nombreUsuario} </p><button class='nombre' onclick='nombre()'>CAMBIAR NOMBRE</button>`
   console.log(nombreUsuario)
 }
