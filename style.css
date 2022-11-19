@@ -338,6 +338,9 @@ td {
   color: rgb(0, 0, 0);
 }
 
+.formulario-usuario {
+  display: grid;
+}
 /*media query modo responsive*/
 @media (max-width: 1150px) {
   body {

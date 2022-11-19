@@ -236,7 +236,7 @@ function suprimirPuntuaciones(array) {
 }
 function nombre() {
   inputUsuario.innerHTML =
-    "<p class='texto-usuario'>Introduzca su nombre:</p><input class='nombre' type='text' id='inputNombre'><button class='nombre' onclick='guardarNombre()'>GUARDAR</button> ";
+    "<p class='texto-usuario'>Introduzca su nombre:</p><form class='formulario-usuario'><input class='nombre' type='text' id='inputNombre'><button class='nombre' onclick='guardarNombre()'>GUARDAR</button></form>";
 }
 function guardarNombre() {
   nombreUsuario = document.getElementById("inputNombre").value;
