@@ -164,7 +164,7 @@ const iniciar = () => {
               break;
           }
           //Si el contador es igual a 6, el jugador pierde
-          if (count === 7) {
+          if (count === 6) {
             puntuacionFinal = palabraElegida.length + winCount;
             mejoresPuntuaciones.push({
               name: nombreUsuario,
