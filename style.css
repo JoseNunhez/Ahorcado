@@ -337,3 +337,59 @@ td {
   border: 3px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
 }
+
+/*media query modo responsive*/
+@media (max-width: 1150px) {
+  body {
+    grid-template-areas:
+      "usuario"
+      "main"
+      "puntuaciones"
+      "footer";
+  }
+  .usuario {
+    grid-area: usuario;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-width: 300px;
+    padding: 2em;
+  }
+  #usuario {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .puntuaciones {
+    grid-area: puntuaciones;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-width: 300px;
+    padding: 2em;
+  }
+  #puntuaciones-jugadores {
+    margin-top: 2rem;
+  }
+
+  footer {
+    grid-area: footer;
+    background-color: #aaa7a7;
+    display: flex;
+    width: auto;
+    text-align: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  footer button {
+    padding: 1rem;
+    text-align: center;
+    height: auto;
+    width: auto;
+    padding: 0.5em 0.9em;
+    font-weight: bold;
+    justify-content: center;
+    font-family: "Fredoka One", cursive;
+    font-weight: 100;
+  }
+}
