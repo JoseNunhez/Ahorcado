@@ -17,7 +17,7 @@ body {
   background-image: url("/Imagenes/libreta-fondo.jpg");
   display: grid;
   grid-template-columns: 1fr, 5fr, 1fr;
-  grid-template-rows: 1fr, 1fr ,3rem;
+  grid-template-rows: 1fr 1fr 3rem;
   grid-template-areas:
     "usuario main puntuaciones"
     "config main puntuaciones"
@@ -61,7 +61,7 @@ body {
   padding: 0.5rem;
   border-radius: 0.6em;
   box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.35);
-  
+  font-size: medium;
 }
 .usuario {
   grid-area: usuario;
@@ -99,7 +99,7 @@ body {
   flex-direction: column;
   font-size: 16px;
   padding: 2em;
-  background-color: rgba(5, 5, 5, 0.105);
+  background-color: rgba(5, 5, 5, 0.038);
 }
 /*Titulos*/
 .usuario h1 {
@@ -110,7 +110,7 @@ body {
   box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.35);
 }
 .puntuaciones h1 {
-  background-color: #ad0202;
+  background-color: #ad5502;
   text-align: center;
   padding: 0.5rem;
   border-radius: 0.6em;
@@ -208,7 +208,7 @@ body {
   height: 4.7em;
   width: 4.7em;
   border-radius: 10em;
-  border: 3px solid rgb(5, 5, 5);
+  border: 3px solid #03405d;
   background-color: #789aaa;
   box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.288);
   font-weight: bold;
@@ -293,7 +293,7 @@ footer p {
   margin: 1rem;
   display: flex;
   align-items: center;
-  padding: 2rem;
+  padding: 0.5rem;
   font-weight: bold;
   justify-content: center;
   font-family: "Fredoka One", cursive;
@@ -331,14 +331,14 @@ th {
   padding: 1rem;
   text-align: center;
   border: 2px solid rgb(0, 0, 0);
-  background-color: hsl(0, 36%, 45%);
+  background-color: #e2852e;
 }
 
 td {
   padding: 1rem;
   border: 1px solid black;
   text-align: center;
-  background-color: hsl(0, 54%, 51%);
+  background-color: #d99f29;
 }
 
 /*Edicion botones e input de nombre*/
@@ -391,7 +391,7 @@ td {
   body {
     display: grid;
     min-height: 100vh;
-    grid-template-rows:200px 300px 2fr 1fr 2rem;
+    grid-template-rows:100px 300px 2fr 1fr 2rem;
     grid-template-areas:
       "config"
       "usuario"
