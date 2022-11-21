@@ -475,6 +475,9 @@ td {
     flex-wrap: wrap;
     justify-content: space-around;
   }
+  #opciones-jugador button{
+    margin: 1rem;
+  }
   footer {
     grid-area: footer;
     background-color: #aaa7a7;
@@ -485,15 +488,5 @@ td {
     min-width: 2rem;
   }
 
-  footer button {
-    padding: 1rem;
-    text-align: center;
-    height: auto;
-    width: auto;
-    padding: 0.5em 0.9em;
-    font-weight: bold;
-    justify-content: center;
-    font-family: "Fredoka One", cursive;
-    font-weight: 100;
-  }
+
 }
