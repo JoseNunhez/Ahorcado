@@ -356,11 +356,17 @@ td {
     flex-direction: column;
     height: auto;
     min-width: 300px;
-    padding: 2em;
+    padding: 0;
+  }
+  #usuario p{
+    margin-bottom: 1rem;
+  }
+  #usuario #inputNombre{
+    margin-bottom: 1rem;
   }
   #usuario {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   .puntuaciones {
     grid-area: puntuaciones;
@@ -368,10 +374,24 @@ td {
     flex-direction: column;
     height: auto;
     min-width: 300px;
-    padding: 2em;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  #section-input-jugador {
+    margin: 0;
+  }
+  #imagenes-ahorcado {
+    margin-bottom: 1rem;
   }
   #puntuaciones-jugadores {
     margin-top: 2rem;
+  }
+  .container{
+    grid-area: main;
+    padding: 0;
+  }
+  #opciones-jugador h3 {
+    padding: 1.5rem;
   }
 
   footer {
