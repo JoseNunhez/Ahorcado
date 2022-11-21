@@ -63,7 +63,7 @@ body {
   flex-direction: column;
   font-size: 16px;
   padding: 2em;
-  background-color: rgba(255, 255, 255, 0.068);
+  background-color: rgba(255, 255, 255, 0);
 }
 /*Titulos*/
 .usuario h1 {
@@ -89,6 +89,7 @@ body {
   color: rgb(255, 255, 255);
   padding: 0.5rem;
   border-radius: 0.6em;
+  font-size: 35px;
 }
 
 /*Input*/
@@ -120,8 +121,8 @@ body {
   border-radius: 20px;
   text-transform: capitalize;
   font-weight: bolder;
-  font-size: 17px;
-  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.35);
+  font-size: 16px;
+  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.288);
   cursor: pointer;
   font-family: "Fredoka One", cursive;
   font-weight: 200;
@@ -252,12 +253,14 @@ footer button {
   background-color: #001572;
   border: 1px rgb(64, 64, 248);
   color: #ffbe0b;
+  border-radius: 50px;
 }
 
 .light-mode {
-  background-color: #ffbe0b;
+  background-color: #fff493;
   border: 1px yellow;
   color: white;
+  border-radius: 50px;
 }
 
 /*^Tabla de puntuaciones*/
@@ -302,7 +305,7 @@ td {
   margin-bottom: 2rem;
   position: relative;
   display: inline-block;
-  background-color: rgba(180, 178, 178, 0.322);
+  background-color: rgba(252, 252, 252, 0.548);
   color: rgb(0, 0, 0);
   border-radius: 20px;
   text-transform: capitalize;
