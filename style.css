@@ -464,6 +464,7 @@ td {
     width: 100vw;
     grid-area: main;
     padding: 0;
+    min-width: 300px;
   }
   #opciones-jugador h3 {
     width: 100vw;
