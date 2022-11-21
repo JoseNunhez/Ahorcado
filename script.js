@@ -260,5 +260,4 @@ document.getElementById("modo-noche").onclick = function () {
   document.body.classList.add("modo-nocturno");
   document.getElementById("modo-noche").classList.add("activo");
   document.getElementById("modo-dia").classList.remove("activo");
-
 };
