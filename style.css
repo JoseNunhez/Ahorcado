@@ -14,12 +14,13 @@ h2 {
 
 body {
   background-color: rgb(255, 255, 255);
-  background-image: url(https://wallpaperaccess.com/full/4317847.jpg);
+  background-image: url("/Imagenes/libreta-fondo.jpg");
   display: grid;
   grid-template-columns: 1fr, 5fr, 1fr;
-  grid-template-rows: 1fr, 3rem;
+  grid-template-rows: 1fr, 1fr ,3rem;
   grid-template-areas:
     "usuario main puntuaciones"
+    "config main puntuaciones"
     "footer footer footer";
   background-size: cover;
   font-family: "Fredoka One", cursive;
@@ -31,20 +32,55 @@ body {
   background-image: none;
   color: white;
 }
+.modo-nocturno #opciones-jugador button:disabled{
+  border: 1px solid black;
+}
+.modo-nocturno #opciones-jugador button.activo {
+  border: 3px solid rgb(255, 255, 255);
+}
 
 .modo-nocturno .texto-usuario {
   color: white !important;
 }
-
+#ajustes-configuracion{
+  grid-area: config;
+  display: flex;
+  flex-direction:column;
+  height: 30vh;
+  min-width: 300px;
+  padding: 2em;
+  align-items: center;
+}
+#ajustes-configuracion div {
+  display: flex;
+  flex-direction: row;
+}
+#ajustes-configuracion h1{
+  background-color: hwb(118 4% 43%);
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.6em;
+  box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.35);
+  
+}
 .usuario {
   grid-area: usuario;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: auto;
   min-width: 300px;
   padding: 2em;
 }
-
+#usuario p{
+  margin-bottom: 1rem;
+}
+#usuario #inputNombre{
+  margin-bottom: 1rem;
+  background-color: #c3c0c0;
+}
+#usuario {
+  margin: auto;
+}
 .puntuaciones {
   grid-area: puntuaciones;
   display: flex;
@@ -63,13 +99,12 @@ body {
   flex-direction: column;
   font-size: 16px;
   padding: 2em;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(5, 5, 5, 0.105);
 }
 /*Titulos*/
 .usuario h1 {
   background-color: hwb(118 4% 43%);
   text-align: center;
-  color: rgb(255, 255, 255);
   padding: 0.5rem;
   border-radius: 0.6em;
   box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.35);
@@ -77,16 +112,14 @@ body {
 .puntuaciones h1 {
   background-color: #ad0202;
   text-align: center;
-  color: rgb(255, 255, 255);
   padding: 0.5rem;
   border-radius: 0.6em;
   box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.35);
 }
 .container h1 {
   box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.35);
-  background-color: #0525b3;
+  background-color: #2e4cd4;
   text-align: center;
-  color: rgb(255, 255, 255);
   padding: 0.5rem;
   border-radius: 0.6em;
   font-size: 35px;
@@ -95,6 +128,22 @@ body {
 /*Input*/
 
 /*botones*/
+#usuario button {
+  border: 1px #26b117;
+  padding: 0.9em 1.2em;
+  position: relative;
+  display: inline-block;
+  box-sizing: inherit;
+  background-color: #6ac660;
+  border-radius: 20px;
+  text-transform: capitalize;
+  font-weight: bolder;
+  font-size: 17px;
+  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.288);
+  cursor: pointer;
+  font-family: "Fredoka One", cursive;
+  font-weight: 200;
+}
 
 #opciones-jugador {
   margin: auto;
@@ -110,14 +159,13 @@ body {
 }
 
 #opciones-jugador button {
-  border: 1px #ffbe0b;
+  border: 1px #5e78ea;
   margin-left: 1.5rem;
   padding: 0.9em 1.2em;
   position: relative;
   display: inline-block;
   box-sizing: inherit;
-  background-color: #ffbe0b;
-  color: rgb(0, 0, 0);
+  background-color: #5e78ea;
   border-radius: 20px;
   text-transform: capitalize;
   font-weight: bolder;
@@ -160,16 +208,15 @@ body {
   height: 4.7em;
   width: 4.7em;
   border-radius: 10em;
-  border: 3px solid rgb(255, 93, 44);
-  background-color: #f84e15;
-  color: rgb(0, 0, 0);
+  border: 3px solid rgb(5, 5, 5);
+  background-color: #789aaa;
   box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.288);
   font-weight: bold;
   font-style: italic;
 }
 
 .contenedor-juego-nuevo {
-  background-color: rgba(255, 255, 255, 0.562);
+  background-color: rgba(255, 255, 255, 0.842);
   position: fixed;
   left: 50%;
   top: 50%;
@@ -185,18 +232,22 @@ body {
   font-size: 1.3em;
   text-align: center;
 }
+.modo-nocturno .contenedor-juego-nuevo{
+  background-color: rgba(5, 0, 0, 0.62);
+  color: white;
+}
 
 .contenedor-juego-nuevo button {
   height: 3.5em;
   padding: 0.5em 0.9em;
-  border: 3px solid rgb(6, 172, 56);
-  background-color: rgb(3, 151, 53);
-  color: rgb(255, 255, 255);
+  border: 3px solid #000105;
+  background-color: #707fc2;
   border-radius: 0.6em;
   text-transform: capitalize;
   font-weight: lighter;
   box-shadow: 0 1.3em 2.5em rgba(189, 188, 188, 0.589);
   font-weight: bolder;
+  font-weight: 600;
 }
 
 .hide {
@@ -225,30 +276,39 @@ body {
 
 footer {
   grid-area: footer;
-  background-color: #aaa7a7;
+  background-color: #828282b7;
   display: flex;
   width: 100%;
   text-align: center;
   justify-content: center;
-  height: 1.5rem;
+  height: 2rem;
 }
 
 footer p {
-  color: rgba(59, 59, 59, 0.664);
+  color: rgba(6, 0, 0, 0.664);
   margin: auto;
 }
 
-footer button {
-  padding: 1rem;
-  text-align: center;
-  height: 1.5rem;
-  width: 8rem;
-  padding: 0.5em 0.9em;
+#ajustes-configuracion button {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
   font-weight: bold;
   justify-content: center;
   font-family: "Fredoka One", cursive;
   font-weight: 100;
 }
+#ajustes-configuracion button:hover {
+  cursor: pointer;
+}
+#ajustes-configuracion button.activo{
+  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.965);
+}
+.modo-nocturno #ajustes-configuracion button.activo{
+  box-shadow: 0 1.3em 2.5em rgba(251, 250, 250, 0.642);
+}
+
 .dark-mode {
   background-color: #001572;
   border: 1px rgb(64, 64, 248);
@@ -270,15 +330,15 @@ table {
 th {
   padding: 1rem;
   text-align: center;
-  border: 2px solid black;
-  background-color: hsl(265, 83%, 57%);
+  border: 2px solid rgb(0, 0, 0);
+  background-color: hsl(0, 36%, 45%);
 }
 
 td {
   padding: 1rem;
   border: 1px solid black;
   text-align: center;
-  background-color: hsl(334, 100%, 50%);
+  background-color: hsl(0, 54%, 51%);
 }
 
 /*Edicion botones e input de nombre*/
@@ -318,27 +378,9 @@ td {
   font-weight: bolder;
 }
 
-#usuario button {
-  border: 1px #ffbe0b;
-  padding: 0.9em 1.2em;
-  position: relative;
-  display: inline-block;
-  box-sizing: inherit;
-  background-color: #fb5607;
-  color: rgb(0, 0, 0);
-  border-radius: 20px;
-  text-transform: capitalize;
-  font-weight: bolder;
-  font-size: 17px;
-  box-shadow: 0 1.3em 2.5em rgba(0, 0, 0, 0.288);
-  cursor: pointer;
-  font-family: "Fredoka One", cursive;
-  font-weight: 200;
-}
 
 #usuario button:active {
   border: 3px solid rgb(0, 0, 0);
-  color: rgb(0, 0, 0);
 }
 
 .formulario-usuario {
@@ -347,12 +389,34 @@ td {
 /*media query modo responsive*/
 @media (max-width: 1150px) {
   body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows:200px 300px 2fr 1fr 2rem;
     grid-template-areas:
+      "config"
       "usuario"
       "main"
       "puntuaciones"
       "footer";
   }
+  footer {
+    grid-area: footer;
+  }
+  #ajustes-configuracion{
+    width: 100vw;
+    grid-area: config;
+    display: flex;
+    height: auto;
+    min-width: 300px;
+    padding: 0;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    align-items: unset;
+  }
+  #ajustes-configuracion .button-ajustes{
+    justify-content: center;
+  }
+  
   .usuario {
     grid-area: usuario;
     display: flex;
@@ -368,8 +432,7 @@ td {
     margin-bottom: 1rem;
   }
   #usuario {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: auto;
   }
   .puntuaciones {
     grid-area: puntuaciones;
@@ -404,7 +467,7 @@ td {
     width: auto;
     text-align: center;
     justify-content: center;
-    height: auto;
+    min-width: 2rem;
   }
 
   footer button {

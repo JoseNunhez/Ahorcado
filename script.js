@@ -10,6 +10,8 @@ const resultadoTexto = document.getElementById("resultado-texto");
 const contenedorPuntuaciones = document.getElementById(
   "puntuaciones-jugadores"
 );
+const titulos = document.getElementsByClassName("h1");
+console.log(titulos)
 const inputUsuario = document.getElementById("usuario");
 let mejoresPuntuaciones = [];
 let nombreUsuario = "-";
@@ -250,7 +252,13 @@ function cambiarNombre() {
 //modo nocturno
 document.getElementById("modo-dia").onclick = function () {
   document.body.classList.remove("modo-nocturno");
+  document.getElementById("modo-dia").classList.add("activo");
+  document.getElementById("modo-noche").classList.remove("activo");
+  
 };
 document.getElementById("modo-noche").onclick = function () {
   document.body.classList.add("modo-nocturno");
+  document.getElementById("modo-noche").classList.add("activo");
+  document.getElementById("modo-dia").classList.remove("activo");
+
 };
